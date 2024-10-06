@@ -75,14 +75,14 @@ export default function Index() {
       email: "test@test.com",
       password: "test",
       date: new Date(),
-      boolean: true,
+      boolean: false,
       null: null,
     },
     submitData: {
       test: "test",
     },
   });
-  const { register, handleSubmit, formState, watch, setError } = methods;
+  const { register, handleSubmit, formState, watch, setError, getValues } = methods;
 
   console.log(formState.errors);
   return (
@@ -91,6 +91,12 @@ export default function Index() {
 
       <Form method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
         <div>
+          <div>
+            <label>
+              Boolean
+              <input type="checkbox" {...register("boolean")} />
+            </label>
+          </div>
           <button type="submit" className="button">
             Add
           </button>
